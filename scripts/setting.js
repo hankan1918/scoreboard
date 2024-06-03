@@ -34,11 +34,13 @@ function setDefaltSetting(){
     TEAM_COUNT.value = setting.TEAM_COUNT;
     ALLOWS_ITEM.checked = setting.ALLOWS_ITEM;
     ITEM_NAME_LIST.innerHTML = ITEM_LIST;
-    ITEM_PROB_LIST.innerHTML = setting.ITEM_PROB_LIST;
+    // ITEM_PROB_LIST.innerHTML = setting.ITEM_PROB_LIST;
+    genItemProbList();
     POINT_LIST.innerHTML = setting.POINT_LIST;
     setting.HAS_ORDER ? HAS_ORDER2.checked = true : HAS_ORDER1.checked = true;
 
     saveSetting();
+    checkAllowsItem();
 }
 
 function appendPoint(event){
@@ -51,10 +53,42 @@ function appendPoint(event){
 }
 
 function saveSetting(){
-    sessionStorage.setItem(SETTING_KEY, JSON.stringify(setting));
+    var children = ITEM_PROB_LIST.children;
+    var sum = 0;
+    for(var i = 0; i<children.length; i++)
+        sum += Number(children[i].value);
+    if(sum != 1)
+        alert(`각 아이템의 확률의 합이 1이어야 합니다.\n현재 합계 : ${sum}`);
+    else
+        sessionStorage.setItem(SETTING_KEY, JSON.stringify(setting));
 }
 
 function resetSetting(){
     sessionStorage.setItem(SETTING_KEY, null);
     setDefaltSetting();
+}
+
+function genItemProbList(){
+    var input;
+    ITEM_PROB_LIST.innerHTML = "";
+    setting.ITEM_PROB_LIST.forEach(prob => {
+        input = document.createElement('input');
+        input.type = 'number';
+        input.step = '0.01';
+        input.value = prob;
+        input.length = "4";
+        ITEM_PROB_LIST.appendChild(input);
+    });
+}
+
+function checkAllowsItem(){
+    var children = ITEM_PROB_LIST.children;
+    if(ALLOWS_ITEM.checked){
+        for(var i = 0; i<children.length; i++)
+            children[i].disabled = false;
+    }
+    else{
+        for(var i = 0; i<children.length; i++)
+            children[i].disabled = true;
+    }
 }

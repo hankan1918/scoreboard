@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/setting.css">
     <title>Document</title>
 </head>
 <body onload="setDefaltSetting()">
     <h1>Setting for playing</h1>
     <form onsubmit="checkSetting()">
+        <h3>Game Title</h3>
         <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
+        <h3>Team Count</h3>
         <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
-        <input id="ALLOWS_ITEM" type="checkbox">Allow Item
+        <h3>Allows Item</h3>
+        <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()">
+        <h3>Item</h3>
         <div id="ITEM_NAME_LIST"></div>
         <div id="ITEM_PROB_LIST"></div>
+        <h3>Point</h3>
         <div id="POINT_LIST"></div>
         <input id="POINT" type="number" placeholder="Point">
         <input type="button" onclick="appendPoint()" value="추가">
+        <h3>Has Order</h3>
         <input id="HAS_ORDER1" type="radio" name="order" checked>직접선택
         <input id="HAS_ORDER2" type="radio" name="order">순서대로
         <input type="submit" >
