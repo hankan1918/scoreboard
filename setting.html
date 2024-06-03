@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<body onload="setDefaltSetting()">
+    <h1>Setting for playing</h1>
+    <form onsubmit="checkSetting()">
+        <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
+        <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
+        <input id="ALLOWS_ITEM" type="checkbox">Allow Item
+        <div id="ITEM_NAME_LIST"></div>
+        <div id="ITEM_PROB_LIST"></div>
+        <div id="POINT_LIST"></div>
+        <input id="POINT" type="number" placeholder="Point">
+        <input type="button" onclick="appendPoint()" value="추가">
+        <input id="HAS_ORDER1" type="radio" name="order" checked>직접선택
+        <input id="HAS_ORDER2" type="radio" name="order">순서대로
+        <input type="submit" >
+    </form>
+    <input type="button" value="reset" onclick="resetSetting()">
+    <script src="scripts/setting.js"></script>
 </body>
 </html>
