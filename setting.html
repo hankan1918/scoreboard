@@ -8,7 +8,7 @@
 </head>
 <body onload="setDefaltSetting()">
     <h1>Setting for playing</h1>
-    <form onsubmit="checkSetting()">
+    <form action="playing.html" onsubmit="startGame()">
         <h3>Game Title</h3>
         <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
         <h3>Team Count</h3>
@@ -25,7 +25,7 @@
         <h3>Has Order</h3>
         <input id="HAS_ORDER1" type="radio" name="order" checked>직접선택
         <input id="HAS_ORDER2" type="radio" name="order">순서대로
-        <input type="submit" >
+        <input type="submit">
     </form>
     <input type="button" value="reset" onclick="resetSetting()">
     <script src="scripts/setting.js"></script>

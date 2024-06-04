@@ -13,11 +13,6 @@ const HAS_ORDER2 = document.getElementById('HAS_ORDER2');
 
 var setting;
 
-function checkSetting(){
-    
-    alert
-}
-
 function setDefaltSetting(){
     setting = JSON.parse(sessionStorage.getItem(SETTING_KEY))
     || {
@@ -37,30 +32,52 @@ function setDefaltSetting(){
     // ITEM_PROB_LIST.innerHTML = setting.ITEM_PROB_LIST;
     genItemProbList();
     POINT_LIST.innerHTML = setting.POINT_LIST;
+    POINT.value = "";
     setting.HAS_ORDER ? HAS_ORDER2.checked = true : HAS_ORDER1.checked = true;
 
     saveSetting();
     checkAllowsItem();
 }
 
-function appendPoint(event){
+function startGame(e){
+    if(saveSetting()){
+        e.stopPropagation();
+        console.log("ddd");
+    }
+}
+
+function appendPoint(){
     var p = Number(POINT.value);
     if(setting.POINT_LIST.indexOf(p) == -1){
         console.log('append');
         setting.POINT_LIST.push(p);
         POINT_LIST.innerHTML = setting.POINT_LIST;
+        POINT.value = "";
     }
 }
 
 function saveSetting(){
     var children = ITEM_PROB_LIST.children;
     var sum = 0;
-    for(var i = 0; i<children.length; i++)
-        sum += Number(children[i].value);
-    if(sum != 1)
+    var tmp = [];
+    for(var i = 0; i<children.length; i++){
+        tmp.push(Number(children[i].value));
+        sum += tmp[i];
+        // console.log(tmp[i], sum);
+    }
+    if(sum != 1){
         alert(`각 아이템의 확률의 합이 1이어야 합니다.\n현재 합계 : ${sum}`);
-    else
+        return false
+    }
+    else{
+        setting.GAME_TITLE = GAME_TITLE.value;
+        setting.TEAM_COUNT = Number(TEAM_COUNT.value);
+        setting.ALLOWS_ITEM = Boolean(ALLOWS_ITEM.checked);
+        setting.HAS_ORDER = Boolean(HAS_ORDER2.checked);
+        setting.ITEM_PROB_LIST = tmp;
         sessionStorage.setItem(SETTING_KEY, JSON.stringify(setting));
+        return true;
+    }
 }
 
 function resetSetting(){
@@ -76,7 +93,6 @@ function genItemProbList(){
         input.type = 'number';
         input.step = '0.01';
         input.value = prob;
-        input.length = "4";
         ITEM_PROB_LIST.appendChild(input);
     });
 }
