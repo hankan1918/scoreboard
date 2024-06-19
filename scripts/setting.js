@@ -1,6 +1,3 @@
-const SETTING_KEY = 'setting';
-const ITEM_LIST = ['X1', 'X2', 'X3', '점수 교환', 'X(-1)'];
-
 const GAME_TITLE = document.getElementById('GAME_TITLE');
 const TEAM_COUNT = document.getElementById('TEAM_COUNT');
 const ALLOWS_ITEM = document.getElementById('ALLOWS_ITEM');
@@ -10,8 +7,6 @@ const POINT_LIST = document.getElementById('POINT_LIST');
 const POINT = document.getElementById('POINT');
 const HAS_ORDER1 = document.getElementById('HAS_ORDER1');
 const HAS_ORDER2 = document.getElementById('HAS_ORDER2');
-
-var setting;
 
 function setDefaltSetting(){
     setting = JSON.parse(sessionStorage.getItem(SETTING_KEY))
@@ -28,10 +23,12 @@ function setDefaltSetting(){
     GAME_TITLE.value = setting.GAME_TITLE;
     TEAM_COUNT.value = setting.TEAM_COUNT;
     ALLOWS_ITEM.checked = setting.ALLOWS_ITEM;
-    ITEM_NAME_LIST.innerHTML = ITEM_LIST;
+    // ITEM_NAME_LIST.innerHTML = ITEM_LIST;
+    genItemList();
     // ITEM_PROB_LIST.innerHTML = setting.ITEM_PROB_LIST;
     genItemProbList();
-    POINT_LIST.innerHTML = setting.POINT_LIST;
+    // POINT_LIST.innerHTML = setting.POINT_LIST;
+    genPointList();
     POINT.value = "";
     setting.HAS_ORDER ? HAS_ORDER2.checked = true : HAS_ORDER1.checked = true;
 
@@ -39,19 +36,18 @@ function setDefaltSetting(){
     checkAllowsItem();
 }
 
-function startGame(e){
-    if(saveSetting()){
-        e.stopPropagation();
-        console.log("ddd");
-    }
+function startGame(){
+
 }
 
 function appendPoint(){
     var p = Number(POINT.value);
+    p = p<-99 ? -99 : p;
+    p = p>99 ? 99 : p;
     if(setting.POINT_LIST.indexOf(p) == -1){
-        console.log('append');
+        // console.log('append');
         setting.POINT_LIST.push(p);
-        POINT_LIST.innerHTML = setting.POINT_LIST;
+        genPointList();
         POINT.value = "";
     }
 }
@@ -85,6 +81,17 @@ function resetSetting(){
     setDefaltSetting();
 }
 
+function genItemList(){
+    var div;
+    ITEM_NAME_LIST.innerHTML = "";
+    ITEM_LIST.forEach(item => {
+        div = document.createElement('div');
+        div.innerHTML = item;
+        div.classList.add("itemCard");
+        ITEM_NAME_LIST.appendChild(div);
+    })
+}
+
 function genItemProbList(){
     var input;
     ITEM_PROB_LIST.innerHTML = "";
@@ -93,7 +100,20 @@ function genItemProbList(){
         input.type = 'number';
         input.step = '0.01';
         input.value = prob;
+        input.classList.add("itemCard");
         ITEM_PROB_LIST.appendChild(input);
+    });
+}
+
+function genPointList(){
+    // POINT_LIST.innerHTML = setting.POINT_LIST;
+    var div;
+    POINT_LIST.innerHTML = "";
+    setting.POINT_LIST.forEach(point => {
+        div = document.createElement('div');
+        div.innerHTML = point;
+        div.classList.add("pointCard");
+        POINT_LIST.appendChild(div);
     });
 }
 

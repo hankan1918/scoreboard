@@ -1,0 +1,189 @@
+:root {
+    --mainColor: rgb(105, 34, 27);
+    --subColor: #B83930;
+    --listCardColor: #E96C62;
+    --yellow: rgb(255,248,194);
+    --yellowText: #66582e;
+}
+
+body {
+    background-color: var(--mainColor);
+}
+
+input{
+    outline: none;
+}
+
+form {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 3fr 3fr 4fr 6fr;
+
+}
+
+h1{
+    color: white;
+    margin: 40px 0 20px 40px;
+}
+
+.glassMorphism {
+    background: rgba(255, 0, 0, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid rgba(255, 0, 0, 0.68);
+}
+
+.cardDiv {
+    background-color: #6d231d;
+    border-radius: 30px;
+    padding: 25px;
+    margin: 20px;
+    color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+}
+
+#title {
+    grid-column: 1/2;
+    grid-row: 1/4;
+
+    padding: 30px;
+    position: relative;
+    background: rgb(2,0,36);
+    background: linear-gradient(88deg, var(--subColor) 0%, var(--listCardColor) 68%, rgba(0, 0, 0, 0) 69%, rgba(0, 0, 0, 0) 100%);
+}
+
+#title>img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scale(1.75) translate(0px, 19px);
+    clip-path: inset(0 0 40% 0); 
+    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4));
+}
+
+#title>#GAME_TITLE{
+    position: absolute;
+    border: 0px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+
+    background: none;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    width: 50%;
+    top: 35%;
+    margin: 20px;
+}
+
+#title>h3{
+    background-color: rgb(255,248,194);
+    padding: 10px;
+    color: var(--yellowText);
+    border-radius: 30px;
+    /* text-align: right; */
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+}
+
+#title>h3>img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    fill: var(--yellowText);
+    margin: 5px;
+}
+
+#title>label{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0,0,0,0.8);
+}
+
+#title>label>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    fill: white;
+}
+
+#teamCount {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#hasOrder {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#pointAppender {
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+#POINT_LIST {
+    grid-column: 2/3;
+    grid-row: 4/5;
+    display: flex;
+    overflow: scroll;
+    flex-wrap: wrap;
+}
+
+.pointCard {
+    width: 10vh;
+    height: 10vh;
+    color: white;
+    background-color: #B83930;
+    margin: 5px;
+    font-size: 2em;
+    line-height: 10vh;
+    text-align: center;
+}
+
+#itemMenu {
+    grid-column: 1/2;
+    grid-row: 4/5;
+
+    position: relative;
+}
+
+.itemCard{
+    display: inline-block;
+    width: 20vh;
+    height: 20vh;
+    line-height: 20vh;
+    text-align: center;
+    margin: 5px;
+}
+
+#ALLOWS_ITEM{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+input.itemCard{
+    opacity: 0.5;
+    background-color: var(--mainColor);
+    border: 0px;
+}
+
+#ITEM_NAME_LIST, #ITEM_PROB_LIST{
+    position: absolute;
+}
+
+#ITEM_NAME_LIST{
+    font-size: 2em;
+    opacity: 0.1;
+}

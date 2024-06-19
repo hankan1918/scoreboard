@@ -3,31 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/config.js"></script>
     <link rel="stylesheet" href="style/setting.css">
+    <link rel="stylesheet" href="style/config.css">
     <title>Document</title>
 </head>
 <body onload="setDefaltSetting()">
     <h1>Setting for playing</h1>
-    <form action="playing.html" onsubmit="startGame()">
-        <h3>Game Title</h3>
-        <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
-        <h3>Team Count</h3>
-        <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
-        <h3>Allows Item</h3>
-        <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()">
-        <h3>Item</h3>
-        <div id="ITEM_NAME_LIST"></div>
-        <div id="ITEM_PROB_LIST"></div>
-        <h3>Point</h3>
-        <div id="POINT_LIST"></div>
-        <input id="POINT" type="number" placeholder="Point">
-        <input type="button" onclick="appendPoint()" value="추가">
-        <h3>Has Order</h3>
-        <input id="HAS_ORDER1" type="radio" name="order" checked>직접선택
-        <input id="HAS_ORDER2" type="radio" name="order">순서대로
-        <input type="submit">
+    <form action="playing.html" onsubmit="return saveSetting()">
+        <div id="title" class="cardDiv">
+            <h3><img src="assets/svg/flag_icon.svg">Game Title</h3>
+            <img src="assets/title_character.png">
+            <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
+            <label for="play"><img src="assets/svg/play_icon.svg" alt=""></label>
+            <label for="reset"><img src="assets/svg/replay_icon.svg" alt=""></label>
+            <input id="play" type="submit">
+            <input id="reset" type="button" value="reset" onclick="resetSetting()">
+        </div>
+        <div id="teamCount" class="cardDiv">
+            <h3>Team Count</h3>
+            <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
+        </div>
+        <div id="itemMenu" class="cardDiv">
+            <h3>Item</h3>
+            <div id="ITEM_NAME_LIST"></div>
+            <div id="ITEM_PROB_LIST"></div>
+            <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
+        </div>
+        <div id="pointAppender" class="cardDiv">
+            <h3>Point</h3>
+            <input id="POINT" type="number" min="-99" max="99" placeholder="Point">
+            <input type="button" onclick="appendPoint()" value="추가">
+        </div>
+        <div id="POINT_LIST" class="cardDiv"></div>
+        <div id="hasOrder" class="cardDiv">
+            <h3>Has Order</h3>
+            <input id="HAS_ORDER1" type="radio" name="order" checked>직접선택
+            <input id="HAS_ORDER2" type="radio" name="order">순서대로
+        </div>
     </form>
-    <input type="button" value="reset" onclick="resetSetting()">
     <script src="scripts/setting.js"></script>
 </body>
 </html>
