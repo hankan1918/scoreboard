@@ -1,17 +1,22 @@
 :root {
     --mainColor: rgb(105, 34, 27);
-    --subColor: #B83930;
-    --listCardColor: #E96C62;
+    --subColor: rgb(184, 57, 48);
+    --listCardColor: rgb(233, 108, 98);
     --yellow: rgb(255,248,194);
-    --yellowText: #66582e;
+    --yellowText: rgb(102, 88, 46);
 }
 
 body {
+    margin: 0 auto;
+    width: 1500px;
     background-color: var(--mainColor);
 }
 
 input{
     outline: none;
+    background: none;
+    color: white;
+    border: 0px;
 }
 
 form {
@@ -62,6 +67,8 @@ h1{
     transform: scale(1.75) translate(0px, 19px);
     clip-path: inset(0 0 40% 0); 
     filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4));
+
+    pointer-events: none;
 }
 
 #title>#GAME_TITLE{
@@ -69,9 +76,6 @@ h1{
     border: 0px;
     border-left: 3px solid white;
     border-right: 3px solid white;
-
-    background: none;
-    color: white;
     font-size: 80px;
     text-align: center;
     width: 50%;
@@ -79,7 +83,16 @@ h1{
     margin: 20px;
 }
 
-#title>h3{
+#title>.button-set{
+    display: flex;
+    gap: 10px;
+}
+
+#title>.button-set>*{
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+#title>.button-set>h3{
     background-color: rgb(255,248,194);
     padding: 10px;
     color: var(--yellowText);
@@ -92,7 +105,7 @@ h1{
     font-weight: bolder;
 }
 
-#title>h3>img{
+#title>.button-set>h3>img{
     width: 20px;
     height: 20px;
     object-fit: cover;
@@ -100,21 +113,33 @@ h1{
     margin: 5px;
 }
 
-#title>label{
-    width: 30px;
-    height: 30px;
+#title>.button-set>label{
+    width: 50px;
+    height: 50px;
+    padding: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background-color: rgba(0,0,0,0.8);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.5s;
+
 }
 
-#title>label>img{
+#title>.button-set>label:hover{
+    transition: all 0.5s;
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#title>.button-set>label>img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     fill: white;
+    color: white;
 }
 
 #teamCount {
@@ -160,9 +185,9 @@ h1{
 
 .itemCard{
     display: inline-block;
-    width: 20vh;
-    height: 20vh;
-    line-height: 20vh;
+    width: 150px;
+    height: 150px; 
+    line-height: 150px;
     text-align: center;
     margin: 5px;
 }
@@ -174,9 +199,7 @@ h1{
 }
 
 input.itemCard{
-    opacity: 0.5;
-    background-color: var(--mainColor);
-    border: 0px;
+
 }
 
 #ITEM_NAME_LIST, #ITEM_PROB_LIST{

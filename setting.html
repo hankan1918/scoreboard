@@ -12,13 +12,15 @@
     <h1>Setting for playing</h1>
     <form action="playing.html" onsubmit="return saveSetting()">
         <div id="title" class="cardDiv">
-            <h3><img src="assets/svg/flag_icon.svg">Game Title</h3>
+            <div class="button-set">
+                <h3><img src="assets/svg/flag_icon.svg">Game Title</h3>
+                <label for="play"><img src="assets/svg/play_icon.svg" alt=""></label>
+                <label for="reset"><img src="assets/svg/replay_icon.svg" alt=""></label>
+            </div>
             <img src="assets/title_character.png">
             <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
-            <label for="play"><img src="assets/svg/play_icon.svg" alt=""></label>
-            <label for="reset"><img src="assets/svg/replay_icon.svg" alt=""></label>
-            <input id="play" type="submit">
-            <input id="reset" type="button" value="reset" onclick="resetSetting()">
+            <input id="play" type="submit" style="display: none;">
+            <input id="reset" type="button" style="display: none;" value="reset" onclick="resetSetting()">
         </div>
         <div id="teamCount" class="cardDiv">
             <h3>Team Count</h3>

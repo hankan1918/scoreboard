@@ -101,8 +101,16 @@ function genItemProbList(){
         input.step = '0.01';
         input.value = prob;
         input.classList.add("itemCard");
+        console.log(prob);
+        input.style.background = `linear-gradient(0deg, rgba(184, 57, 48, 0.3) 0%, rgba(233, 108, 98, 0.3) ${prob*100-1}%, rgba(0, 0, 0, 0) ${(prob)*100}%, rgba(0, 0, 0, 0) 100%)`
+        input.addEventListener('input', (e) => {changedItemProb(e)});
         ITEM_PROB_LIST.appendChild(input);
     });
+}
+
+function changedItemProb(e){
+    var prob = e.target.value;
+    e.target.style.background = `linear-gradient(0deg, rgba(184, 57, 48, 0.3) 0%, rgba(233, 108, 98, 0.3) ${prob*100-1}%, rgba(0, 0, 0, 0) ${(prob)*100}%, rgba(0, 0, 0, 0) 100%)`
 }
 
 function genPointList(){
