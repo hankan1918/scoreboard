@@ -11,7 +11,7 @@
 <body onload="setDefaltSetting()">
     <h1>Setting for playing</h1>
     <form action="playing.html" onsubmit="return saveSetting()">
-        <div id="title" class="cardDiv">
+        <div id="title" class="">
             <div class="button-set">
                 <h3><img src="assets/svg/flag_icon.svg">Game Title</h3>
                 <label for="play"><img src="assets/svg/play_icon.svg" alt=""></label>
@@ -26,22 +26,26 @@
             <h3>Team Count</h3>
             <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
         </div>
-        <div id="itemMenu" class="cardDiv">
+        <div id="itemMenu" class="" style="">
             <h3>Item</h3>
             <div id="ITEM_NAME_LIST"></div>
             <div id="ITEM_PROB_LIST"></div>
             <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
         </div>
-        <div id="pointAppender" class="cardDiv">
+        <div id="pointAppender" class="">
             <h3>Point</h3>
             <input id="POINT" type="number" min="-99" max="99" placeholder="Point">
             <input type="button" onclick="appendPoint()" value="추가">
         </div>
-        <div id="POINT_LIST" class="cardDiv"></div>
+        <div id="POINT_LIST" class=""></div>
         <div id="hasOrder" class="cardDiv">
             <h3>Has Order</h3>
-            <input id="HAS_ORDER1" type="radio" name="order" checked>직접선택
-            <input id="HAS_ORDER2" type="radio" name="order">순서대로
+            <div>
+                <input id="HAS_ORDER1" type="radio" name="order" alt="직접선택" checked>
+                <label for="HAS_ORDER2">O</label>
+                <input id="HAS_ORDER2" type="radio" name="order" alt="순서대로">
+                <label for="HAS_ORDER1">X</label>
+            </div>
         </div>
     </form>
     <script src="scripts/setting.js"></script>

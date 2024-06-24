@@ -7,8 +7,8 @@
 }
 
 body {
+    width: 1200px;
     margin: 0 auto;
-    width: 1500px;
     background-color: var(--mainColor);
 }
 
@@ -19,12 +19,15 @@ input{
     border: 0px;
 }
 
+input[type=radio]{
+    display: none;
+}
+
 form {
     margin-top: 100px;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 4fr 3fr;
     grid-template-rows: 3fr 3fr 4fr 6fr;
-
 }
 
 h1{
@@ -45,12 +48,24 @@ h1{
     background-color: #6d231d;
     border-radius: 30px;
     padding: 25px;
-    margin: 20px;
+    margin: 10px;
     color: white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #title {
+    border-radius: 30px;
+    padding: 25px;
+    margin: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+
+    width: 820px;
+    height: 380px;
+
     grid-column: 1/2;
     grid-row: 1/4;
 
@@ -63,9 +78,9 @@ h1{
 #title>img{
     position: absolute;
     right: 0;
-    top: 0;
+    bottom: -150px;
     transform: scale(1.75) translate(0px, 19px);
-    clip-path: inset(0 0 40% 0); 
+    clip-path: inset(0 0 220px 0); 
     filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4));
 
     pointer-events: none;
@@ -147,10 +162,39 @@ h1{
     grid-row: 1/2;
 }
 
+#teamCount>*{
+    font-size: 1.17em;
+}
+
 #hasOrder {
     grid-column: 2/3;
     grid-row: 2/3;
 }
+
+#hasOrder label{
+    cursor: pointer;
+    background-color: var(--listCardColor);
+    filter: grayscale(0.5);
+
+    padding: 20px;
+}
+
+#hasOrder input:first-of-type:checked ~ label{
+    filter: grayscale(0);
+}
+
+#hasOrder input:last-of-type:checked ~ label{
+    filter: grayscale(0);
+}
+
+#hasOrder label[for="HAS_ORDER1"]:hover{
+    filter: grayscale(0);
+}
+
+#hasOrder label[for="HAS_ORDER2"]:hover{
+    filter: grayscale(0);
+}
+
 
 #pointAppender {
     grid-column: 2/3;
