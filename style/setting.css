@@ -4,6 +4,7 @@
     --listCardColor: rgb(233, 108, 98);
     --yellow: rgb(255,248,194);
     --yellowText: rgb(102, 88, 46);
+    --darkRed: #351519;
 }
 
 body {
@@ -51,10 +52,14 @@ h1{
     margin: 10px;
     color: white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.16);
+}
+
+.smallCard{
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 #title {
@@ -169,31 +174,48 @@ h1{
 #hasOrder {
     grid-column: 2/3;
     grid-row: 2/3;
+
+    background-color: var(--darkRed);
+}
+
+#hasOrder p{
+    font-size: 0.8em;
+    color: #62272a;
 }
 
 #hasOrder label{
+    display: inline-block;
     cursor: pointer;
-    background-color: var(--listCardColor);
-    filter: grayscale(0.5);
+    font-size: 25px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-radius: 50%;
+    text-align: center;
 
-    padding: 20px;
+    transition: all 0.3s;
 }
 
-#hasOrder input:first-of-type:checked ~ label{
-    filter: grayscale(0);
+#hasOrder input:first-of-type:checked ~ label:first-of-type{
+    color: var(--listCardColor);
+    transition: all 0.3s;
+    filter: drop-shadow(0 0 8px var(--listCardColor)) drop-shadow(0 0 15px var(--listCardColor)); 
+    /* text-shadow: -1px 0px var(--darkRed), 0px 1px var(--darkRed), 1px 0px var(--darkRed), 0px -1px var(--darkRed); */
 }
 
-#hasOrder input:last-of-type:checked ~ label{
-    filter: grayscale(0);
+#hasOrder input:last-of-type:checked ~ label:last-of-type{
+    color: var(--listCardColor);
+    transition: all 0.3s;
+    filter: drop-shadow(0 0 8px var(--listCardColor)) drop-shadow(0 0 15px var(--listCardColor)); 
 }
 
-#hasOrder label[for="HAS_ORDER1"]:hover{
-    filter: grayscale(0);
+/* #hasOrder label[for="HAS_ORDER1"]:hover{
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.6);
 }
 
 #hasOrder label[for="HAS_ORDER2"]:hover{
-    filter: grayscale(0);
-}
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.6);
+} */
 
 
 #pointAppender {
@@ -210,13 +232,13 @@ h1{
 }
 
 .pointCard {
-    width: 10vh;
-    height: 10vh;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
     color: white;
-    background-color: #B83930;
     margin: 5px;
     font-size: 2em;
-    line-height: 10vh;
+    background-color: #B83930;
     text-align: center;
 }
 

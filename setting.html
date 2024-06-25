@@ -22,28 +22,31 @@
             <input id="play" type="submit" style="display: none;">
             <input id="reset" type="button" style="display: none;" value="reset" onclick="resetSetting()">
         </div>
-        <div id="teamCount" class="cardDiv">
+        <div id="teamCount" class="cardDiv smallCard">
             <h3>Team Count</h3>
             <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
         </div>
-        <div id="itemMenu" class="" style="">
+        <div id="itemMenu" class="cardDiv">
             <h3>Item</h3>
             <div id="ITEM_NAME_LIST"></div>
             <div id="ITEM_PROB_LIST"></div>
             <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
         </div>
-        <div id="pointAppender" class="">
+        <div id="pointAppender" class="cardDiv">
             <h3>Point</h3>
             <input id="POINT" type="number" min="-99" max="99" placeholder="Point">
             <input type="button" onclick="appendPoint()" value="추가">
         </div>
-        <div id="POINT_LIST" class=""></div>
-        <div id="hasOrder" class="cardDiv">
-            <h3>Has Order</h3>
+        <div id="POINT_LIST" class="cardDiv"></div>
+        <div id="hasOrder" class="cardDiv smallCard">
             <div>
-                <input id="HAS_ORDER1" type="radio" name="order" alt="직접선택" checked>
-                <label for="HAS_ORDER2">O</label>
+                <h3>Has Order</h3>
+                <p style="">O: 순서대로, X: 직접선택</p>
+            </div>
+            <div>
                 <input id="HAS_ORDER2" type="radio" name="order" alt="순서대로">
+                <label for="HAS_ORDER2">O</label>
+                <input id="HAS_ORDER1" type="radio" name="order" alt="직접선택">
                 <label for="HAS_ORDER1">X</label>
             </div>
         </div>
