@@ -34,7 +34,7 @@ form {
     margin-top: 100px;
     display: grid;
     grid-template-columns: 4fr 3fr;
-    grid-template-rows: 1.3fr 3fr 4fr;
+    grid-template-rows: 120px 280px 280px 180px;
 }
 
 h1{
@@ -287,7 +287,14 @@ h1{
     grid-row: 2/3;
     display: flex;
     overflow: scroll;
+    height: 130px;
     flex-wrap: wrap;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+#POINT_LIST::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .pointCard {
@@ -308,6 +315,7 @@ h1{
 }
 
 .pointAppender{
+    display: inline-block;
     transition: all 0.3s;
     background: none;
     cursor: pointer;
@@ -333,12 +341,19 @@ h1{
     grid-row: 3/4;
 
     position: relative;
+    align-items: center;
+}
+
+#itemList{
+    display: flex;
+    justify-content: center;
+    background-color: white;
 }
 
 .itemCard{
     display: inline-block;
-    width: 150px;
-    height: 150px; 
+    width: 140px;
+    height: 140px; 
     line-height: 150px;
     text-align: center;
     margin: 5px;
@@ -346,8 +361,8 @@ h1{
 
 #ALLOWS_ITEM{
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
 }
 
 input.itemCard{

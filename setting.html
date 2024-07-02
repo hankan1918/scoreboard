@@ -32,8 +32,10 @@
         </div>
         <div id="itemMenu" class="cardDiv">
             <h3>Item</h3>
-            <div id="ITEM_NAME_LIST"></div>
-            <div id="ITEM_PROB_LIST"></div>
+            <div id="itemList">
+                <div id="ITEM_NAME_LIST"></div>
+                <div id="ITEM_PROB_LIST"></div>
+            </div>
             <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
         </div>
         <div class="cardDiv">
@@ -42,6 +44,7 @@
             <div class="pointCard pointAppender" onclick="appendPoint()">
                 <input id="POINT" type="number" max="99" min="1" maxlength="2" onmouseenter="this.focus()" onmouseout="this.blur()">
             </div>
+            <div class="pointCard dd" style="width: 150px; display: inline-block;">as</div>
         </div>
         <div id="hasOrder" class="cardDiv smallCard">
             <div>

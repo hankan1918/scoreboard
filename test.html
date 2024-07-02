@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .pointCard {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            color: white;
+            margin: 5px;
+            font-size: 2em;
+            background-color: #B83930;
+            text-align: center;
+            border-radius: 20%;
+            box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.425);
+        }
+
+        #parent{
+            display: flex;
+        }
+
+        #appendButton{
+            text-align: center;
+            height: 60px;
+            width: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background-color: #B83930;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .left, .right{
+            filter: grayscale(1);
+        }
+        
+        .cleft, .cright{
+            filter: grayscale(0.5);
+        }
+
+        .left, .cleft{
+            margin-right: -30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div class="pointCard left">1</div>
+        <div class="pointCard cleft">2</div>
+        <div class="pointCard center">3</div>
+        <div class="pointCard cright">4</div>
+        <div class="pointCard right">5</div>
+        <div class="pointCard">6</div>
+        <div class="pointCard">7</div>
+        <div class="pointCard">8</div>
+        <div class="pointCard">9</div>
+        <div class="pointCard">10</div>
+    </div>
+    <div id="appendButton">+</div>
+</body>
+
+</html>
