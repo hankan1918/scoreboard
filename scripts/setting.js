@@ -45,11 +45,21 @@ function appendPoint(){
     p = p<-99 ? -99 : p;
     p = p>99 ? 99 : p;
     if(setting.POINT_LIST.indexOf(p) == -1){
-        // console.log('append');
         setting.POINT_LIST.push(p);
+        saveSetting();
         genPointList();
         POINT.value = "";
     }
+}
+
+function pointDeleteHandler(e){
+    // 이벤트가 발생한 div 삭제
+    e.addEventListener('click', ()=>{
+        e.parentNode.removeChild(e);
+        setting.POINT_LIST.pop(e.innerHTML);
+        console.log(setting.POINT_LIST);
+        saveSetting();
+    })
 }
 
 function saveSetting(){
@@ -122,6 +132,7 @@ function genPointList(){
         div.innerHTML = point;
         div.classList.add("pointCard");
         POINT_LIST.appendChild(div);
+        pointDeleteHandler(div);
     });
 }
 
