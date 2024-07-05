@@ -41,18 +41,18 @@
         <div class="cardDiv">
             <p>Point List</p>
             <div id="pointDiv">
-                <div class="arrow">〈</div>
+                <div class="arrow" onclick="moveLeft()">〈</div>
                 <div>
                     <div id="POINT_LIST">
-                        <div>
-                            <input class="pointCard pointAppender" id="POINT" type="number" max="99" min="1" maxlength="2" onmouseenter="this.focus()" onmouseout="this.blur()">
+                        <div class="pointCard pointAppender">
+                            <input id="POINT" type="number" max="99" min="1" maxlength="2" onmouseenter="this.focus()" onmouseout="this.blur()">
                         </div>
                     </div>
-                    <div id="appendPoint" onclick="appendPoint()">
+                    <div id="appendPoint" onclick="pointAppenderHandler()">
                         +
                     </div>
                 </div>
-                <div class="arrow">〉</div>
+                <div class="arrow" onclick="moveRight()">〉</div>
             </div>
         </div>
         <div id="hasOrder" class="cardDiv smallCard">

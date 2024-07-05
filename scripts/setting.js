@@ -40,6 +40,19 @@ function startGame(){
 
 }
 
+function pointAppenderHandler(){
+    var appender = POINT_LIST.querySelector(".pointCard:nth-of-type(1)");
+    var input = appender.querySelector("input");
+    if(appender.classList.contains("pointAppender") && input.value != ""){
+        appendPoint();
+    } else {
+        while(!(appender.classList.contains("pointAppender"))){
+            moveLeft();
+            appender = POINT_LIST.querySelector(".pointCard:nth-of-type(1)");
+        }
+    }
+}
+
 function appendPoint(){
     var p = Number(POINT.value);
     p = p<-99 ? -99 : p;
@@ -126,7 +139,10 @@ function changedItemProb(e){
 function genPointList(){
     // POINT_LIST.innerHTML = setting.POINT_LIST;
     var div;
-    POINT_LIST.innerHTML = "";
+    POINT_LIST.querySelectorAll(".pointCard:not(.pointAppender)").forEach((card)=>{
+        console.log(card);
+        POINT_LIST.removeChild(card);
+    })
     setting.POINT_LIST.forEach(point => {
         div = document.createElement('div');
         div.innerHTML = point;
@@ -146,4 +162,16 @@ function checkAllowsItem(){
         for(var i = 0; i<children.length; i++)
             children[i].disabled = true;
     }
+}
+
+function moveLeft() {
+    var p = POINT_LIST;
+    var last = p.lastElementChild;
+    p.prepend(last);
+}
+
+function moveRight(){
+    var p = POINT_LIST;
+    var first = p.firstElementChild;
+    p.append(first);
 }
