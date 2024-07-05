@@ -238,12 +238,11 @@ form {
     display: inline-block;
     cursor: pointer;
     font-size: 25px;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     line-height: 40px;
     border-radius: 50%;
     text-align: center;
-
+    margin: 0 3px;
     transition: all 0.3s;
 }
 
@@ -304,11 +303,10 @@ form {
 
 #appendPoint{
     margin: 0 auto;
-    margin-top: 3px;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
     background-color: #62272a;
     text-align: center;
     cursor: pointer;
@@ -318,7 +316,7 @@ form {
 
 #appendPoint:hover{
     transition: all 0.3s;
-    margin-top: 5px;
+    margin-top: 3px;
     box-shadow: none;
 }
 
@@ -354,28 +352,28 @@ form {
 }
 
 #POINT_LIST>:nth-child(2){
-    margin-right: -80px;
+    margin-right: -60px;
 }
 #POINT_LIST>:nth-child(3){
-    margin-right: -140px;
+    margin-right: -120px;
 }
 
 #POINT_LIST>:nth-last-child(1){
-    margin-left: -80px;
+    margin-left: -60px;
 }
 #POINT_LIST>:nth-last-child(2){
-    margin-left: -140px;
+    margin-left: -120px;
 }
 
 .pointCard {
     display: inline-block;
     position: absolute;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
     color: white;
     margin: 5px;
-    font-size: 2em;
+    font-size: 1.6em;
     background-color: #B83930;
     text-align: center;
     border-radius: 20%;
