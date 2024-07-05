@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body onload="setDefaltSetting()">
-    <h1>Setting for playing</h1>
+    <header></header>
     <form action="playing.html" onsubmit="return saveSetting()">
         <div id="title" class="">
             <div class="button-set">
@@ -39,7 +39,10 @@
             <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
         </div>
         <div class="cardDiv">
-            <p>Point List</p>
+            <div>
+                <h3>Point List</h3>
+                <p>게임 내의 점수 목록</p>
+            </div>
             <div id="pointDiv">
                 <div class="arrow" onclick="moveLeft()">〈</div>
                 <div>
@@ -69,5 +72,6 @@
         </div>
     </form>
     <script src="scripts/setting.js"></script>
+    <footer></footer>
 </body>
 </html>
