@@ -29,6 +29,7 @@ body {
     position: relative;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 form{
@@ -46,7 +47,6 @@ form{
         display: grid;
     }
 }
-
 
 .cardDiv {
     background-color: var(--darkRed);
@@ -286,12 +286,13 @@ form{
 
 #pointDiv{
     position: relative;
+    height: 25  0px;
 }
 
 
 .arrow{
     font-size: 1.5em;
-    line-height: 130px;
+    line-height: 180px;
     position: absolute;
     top: 0;
     transition: all 0.3s;
@@ -301,8 +302,9 @@ form{
 }
 
 .arrow:hover{
-    transform: scale(1.3);
-    transition: all 0.1s;
+    transform: scale(1.2);
+    text-shadow: 0 3px 15px var(--subColor);
+    transition: all 0.3s;
 }
 
 .arrow:first-of-type{
@@ -326,12 +328,6 @@ form{
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-#appendPoint:hover{
-    transition: all 0.3s;
-    margin-top: 3px;
-    box-shadow: none;
-}
-
 #POINT_LIST {
     display: flex;
     position: relative;
@@ -339,7 +335,7 @@ form{
     grid-column: 2/3;
     grid-row: 2/3;
     align-items: center;
-    height: 130px;
+    height: 180px;
     flex-wrap: wrap;
 }
 
