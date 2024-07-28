@@ -53,8 +53,8 @@ body{
     form{
         display: block;
     }
-
     .column:last-of-type{
+        order: 0;
         display: grid;
         grid-row: 90px 310px;
         grid-column: 365px;
@@ -302,7 +302,8 @@ body{
 
 .pointDiv{
     background: none;
-    height: 270px;
+    margin: -20px;
+    height: 310px;
 }
 
 #pointListDiv{
