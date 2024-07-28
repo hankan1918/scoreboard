@@ -11,64 +11,71 @@
 <body onload="setDefaltSetting()">
     <header></header>
     <form action="playing.html" onsubmit="return saveSetting()">
-        <div id="title" class="">
-            <div class="button-set">
-                <h3><img src="assets/svg/flag_icon.svg">Game Title</h3>
-                <label for="play"><img src="assets/svg/play_icon.svg" alt=""></label>
-                <label for="reset"><img src="assets/svg/replay_icon.svg" alt=""></label>
+        <div class="column">
+            <div id="title" class="cardDiv bigCard">
+                <div class="button-set">
+                    <h3><img src="assets/svg/flag_icon.svg">Game Title</h3>
+                    <label for="play"><img src="assets/svg/play_icon.svg" alt=""></label>
+                    <label for="reset"><img src="assets/svg/replay_icon.svg" alt=""></label>
+                </div>
+                <img src="assets/title_character.png">
+                <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
+                <input id="play" type="submit" style="display: none;">
+                <input id="reset" type="button" style="display: none;" value="reset" onclick="resetSetting()">
             </div>
-            <img src="assets/title_character.png">
-            <input id="GAME_TITLE" type="text" placeholder="Game Title" required>
-            <input id="play" type="submit" style="display: none;">
-            <input id="reset" type="button" style="display: none;" value="reset" onclick="resetSetting()">
-        </div>
-        <div id="hasOrder" class="cardDiv smallCard">
-            <div>
-                <h3>Has Order</h3>
-                <p>O: 순서대로, X: 직접선택</p>
-            </div>
-            <div>
-                <input id="HAS_ORDER2" type="radio" name="order" alt="순서대로">
-                <label for="HAS_ORDER2">O</label>
-                <input id="HAS_ORDER1" type="radio" name="order" alt="직접선택">
-                <label for="HAS_ORDER1">X</label>
-            </div>
-        </div>
-        <div class="cardDiv">
-            <div>
-                <h3>Point List</h3>
-                <p>게임 내의 점수 목록</p>
-            </div>
-            <div id="pointDiv">
-                <div class="arrow" onclick="moveLeft()">〈</div>
+            <div class="pointDiv cardDiv bigCard">
                 <div>
-                    <div id="POINT_LIST">
-                        <div class="pointCard pointAppender">
-                            <input id="POINT" type="number" max="99" min="1" maxlength="2" onmouseenter="this.focus()" onmouseout="this.blur()">
+                    <h3>Point List</h3>
+                    <p>게임 내의 점수 목록</p>
+                </div>
+                <div id="pointListDiv">
+                    <div class="arrow" onclick="moveLeft()">〈</div>
+                    <div>
+                        <div id="POINT_LIST">
+                            <div class="pointCard pointAppender">
+                                <input id="POINT" type="number" max="99" min="1" maxlength="2" onmouseenter="this.focus()" onmouseout="this.blur()">
+                            </div>
+                        </div>
+                        <div id="appendPoint" onclick="pointAppenderHandler()">
+                            +
                         </div>
                     </div>
-                    <div id="appendPoint" onclick="pointAppenderHandler()">
-                        +
-                    </div>
+                    <div class="arrow" onclick="moveRight()">〉</div>
                 </div>
-                <div class="arrow" onclick="moveRight()">〉</div>
+            </div>
+            <div id="itemMenu" class="cardDiv bigCard">
+                <h3>Item</h3>
+                <div id="itemList">
+                    <div id="ITEM_NAME_LIST"></div>
+                    <div id="ITEM_PROB_LIST"></div>
+                </div>
+                <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
             </div>
         </div>
-        <div id="teamCount" class="cardDiv">
-            <div id="plus" class="countButton">-</div>
-            <div>
-                <p>Team Count</p>
-                <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
+        <div class="column">
+            <div id="hasOrder" class="cardDiv smallCard">
+                <div>
+                    <h3>Has Order</h3>
+                    <p>O: 순서대로, X: 직접선택</p>
+                </div>
+                <div>
+                    <input id="HAS_ORDER2" type="radio" name="order" alt="순서대로">
+                    <label for="HAS_ORDER2">O</label>
+                    <input id="HAS_ORDER1" type="radio" name="order" alt="직접선택">
+                    <label for="HAS_ORDER1">X</label>
+                </div>
             </div>
-            <div id="minus" class="countButton">+</div>
-        </div>
-        <div id="itemMenu" class="cardDiv">
-            <h3>Item</h3>
-            <div id="itemList">
-                <div id="ITEM_NAME_LIST"></div>
-                <div id="ITEM_PROB_LIST"></div>
+            <div id="teamCount" class="cardDiv smallCard">
+                <div id="plus" class="countButton">-</div>
+                <div>
+                    <p>Team Count</p>
+                    <input id="TEAM_COUNT" type="number" placeholder="Team count" min="2" max="99" required>
+                </div>
+                <div id="minus" class="countButton">+</div>
             </div>
-            <input id="ALLOWS_ITEM" type="checkbox" onclick="checkAllowsItem()" title="Allow Item">
+            <div id="etc" class="cardDiv smallCard">
+                <h1>AD</h1>
+            </div>
         </div>
     </form>
     <script src="scripts/setting.js"></script>
